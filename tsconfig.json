@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",                   // Modern JS features
+    "module": "ES2020",                   // Browser-compatible ES modules
+    "lib": ["ES2020", "DOM"],             // JS + browser APIs
+    "strict": true,                        // Enable all strict type-checking
+    "esModuleInterop": true,               // Allows default imports from CommonJS
+    "allowSyntheticDefaultImports": true,  // Import default even if module has none
+    "moduleResolution": "node",            // Better module resolution for imports
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "useDefineForClassFields": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true
+  },
+  "include": ["./**/*.ts"]                // Compile all TS files in project
+}

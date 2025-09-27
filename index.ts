@@ -1,0 +1,120 @@
+let myName: string = "Bob"
+let numberOfWheels: number = 4
+let isStudent: boolean = true
+
+type Food = string
+let favoriteFood: Food = "Pizza"
+
+type Address = {
+    street: string,
+    city: string,
+    country: string,
+    zipCode: number
+}
+
+type Person = {
+    name: string,
+    age: number,
+    isStudent: boolean,
+    address?: Address
+}
+
+let person1: Person = {
+    name: "Alice",
+    age: 25,
+    isStudent: false,
+}
+
+let person2: Person = {
+    name: "Jill",
+    age: 30,
+    isStudent: false,
+    address: {
+        street: "456 Elm St", 
+        city: "Metropolis",
+        country: "Fictionland",
+        zipCode: 67890
+    }
+}
+
+function displayInfo(person: Person) {
+  console.log(`${person.name} lives at ${person.address?.street}`);
+}
+
+displayInfo(person1);
+
+let people: Person[] = [person1, person2]
+
+//let people: Array<Person> = [person1, person2]
+
+type UserRole = "guest" | "member" | "admin"
+
+type User = {
+    id: number,
+    username: string,
+    role: UserRole
+}
+
+type UpdatedUser = Partial<User>
+
+let userRole: UserRole = "member"
+let nextUserId = 1;
+
+const users: User[] = [
+    { id: nextUserId++, username: "user1", role: "guest" },
+    { id: nextUserId++, username: "user2", role: "member" },
+    { id: nextUserId++, username: "adminUser", role: "admin" }
+];
+
+function fetchUserDetails(username: string): User {
+    const user = users.find(user => user.username === username);
+    if (!user) {    
+        throw new Error(`User ${username} not found!`);
+    }   
+    return user;
+}
+
+let value: any = 1
+value = "Hi"
+if (typeof value === "string") {
+    console.log(value.toUpperCase());
+}
+value = [1,2,3]
+if (Array.isArray(value)) {
+    console.log(value.map(x => x)); 
+}
+
+function updateUser(id: number, updates: UpdatedUser): void {
+    const user = users.find(user => user.id === id);
+    if (!user) {
+        throw new Error(`User with id ${id} not found!`);
+    }
+    Object.assign(user, updates);
+}
+
+updateUser(1, { role: "member" });
+updateUser(2, { username: "newUser2" });
+
+function addNewUser(newUser: Omit<User, "id">): User {
+    const user: User = {
+        id: nextUserId++,
+        ...newUser
+    }
+    users.push(user)
+    return user;
+}
+
+addNewUser({ username: "user4", role: "guest" })
+console.log("Users:", users)
+
+const gameScores = [14,21,33,42,59]
+const favoriteThings = ["Raindrops", "Whiskers", "Kittens"]
+const voters = [{ name: "Bob", age: 30 }, { name: "Alice", age: 28 }]
+
+function getLastItem<PlaceholderType>(array: PlaceholderType[]): PlaceholderType | undefined {
+    return array[array.length - 1]
+}   
+
+console.log(getLastItem(gameScores))
+console.log(getLastItem(favoriteThings))
+console.log(getLastItem(voters))
