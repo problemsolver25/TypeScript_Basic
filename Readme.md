@@ -47,7 +47,7 @@
 ## more..
 - Type definitions act as documentation that the computer enforces.
 - Type Script catches type errors, but the bigger win is predictable code behavior.
-- TypeScript encourages `thinking about your data and logic rigorously`.
+- TypeScript encourages `thinking about your definition, data and logic rigorously`.
 - Learning TypeScript makes learning C#, Java, or Rust easier later because you get used to thinking in terms of types, interfaces, and generics.
 - It’s a tool to tame complexity, not a requirement to rewrite everything.
 
@@ -69,7 +69,7 @@
         - `tupples` (Array with fixed length and types, Useful when elements have different types but fixed positions.), 
     - **4️⃣ Type Inference**
         - Type inference (TypeScript auto-detects type, Type inference helps you write less code while staying safe.),  
-        - `union` (Variables can accept more than one type), 
+        - Union `|` (Variables can accept more than one type), 
     - **Others**    
       - `any (any disables type checking. Anything goes, disables type checking) (**Don't use `any`**)
       - `unknown` (Anything unknown, must check type before using)
@@ -79,12 +79,12 @@
       - (https://www.typescriptlang.org/docs/handbook/type-compatibility.html#any-unknown-object-void-undefined-null-and-never-assignability)
 - **Syntax**, all in lowercase, no uppercase or camel case:
     - **Type annotations:** `let variableName: type = value;`
-    - **Interfaces:** `interface InterfaceName { propertyName: type; }`
+    - **Type Aliases:** `type AliasName = type;` use type for object, unions, intersections, primitives, or tuples. When you want to compose more complex types. Cannot be reopened/merged like interfaces.
+    - **Interfaces:** `interface InterfaceName { propertyName: type; }` use interface for objects. When you want declaration merging / extension (you can extend the same interface in multiple places), describing the structure of classes, objects, APIs.
     - **Functions:** `function functionName(paramName: type): returnType { ... }`
     - **Classes:** `class ClassName { propertyName: type; constructor(paramName: type) { ... } }`
-    - **Generics:** `function functionName<T>(param: T): T { ... }`
+    - **Generics:** `function functionName<T>(param: T): T { ... }` or `function functionName<T extends BaseType>(param: T): T { ... }`
     - **Enums:** `enum EnumName { VALUE1, VALUE2 }`
-    - **Type Aliases:** `type AliasName = type;`
     - **Union Types:** `let variableName: type1 | type2;`
     - **Intersection Types:** `type CombinedType = Type1 & Type2;`
 - `noImplicitAny` 
@@ -109,15 +109,27 @@
     - **6️⃣ Function Types:** Define types for function parameters and return type. Syntax: `(parameters) => returnType;`. Use function types for variables, callbacks, and interface definitions.
     - **7️⃣ Function Overloading:** Define multiple signatures for a function. Use function overloading when one function needs to behave differently based on input types.
     - **8️⃣ Optional & Union Types in Functions:** mix optional, default, and union types for flexible yet type-safe. functions.
-- Bad behavior of objects
-- Type Aliases
-- READONLY and optional
-- Array
-- Union Types in TS
-- Tuples
-- Enums
-- interface
-- Interface vs Type
+- **Objects**
+    - Type Aliases `type`
+    - Optional properties (`?`)
+    - Union Type (`|`)
+    - Tuple
+    - Intersection types
+    - Objects as function input/output
+    - Inline object types
+    - Generics with objects (`<T extends subtype>`)
+    - Interfaces (basic `interface`, extending `extends`, declaration merging)
+    - Methods inside objects
+    - Intersection vs Extension (interface `extends` vs type `&`)
+    - Readonly properties (`readonly`)
+    - Readonly arrays/tuples
+    - Index signatures (objects with dynamic keys)
+    - Optional chaining and nullish coalescing
+    - Nested objects
+    - Function types inside objects
+    - Optional vs Required properties in interfaces (and default values in functions)
+    - Readonly vs Mutable objects (difference with readonly)
+    - Partial, Required, Pick, Omit utility types (to manipulate object types)
 - setup Typescript for real projects
 - Classes
 - Private Public

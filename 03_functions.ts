@@ -71,3 +71,19 @@ function printId(id: string | number): void {
 printId(123);
 printId("abc123");
 // printId(true); // Error: Argument of type 'boolean' is not assignable to parameter of type 'string | number'.
+
+const hero = ["thor", "spiderman", "ironman"];
+const heroDescriptions = hero.map((hero): string => `Hero is ${hero.toUpperCase()}`);
+console.log("Hero Descriptions: ", heroDescriptions);
+
+function consoleError(errormsg: string): void {
+  console.error(errormsg);
+}
+consoleError("This is an error message.");
+
+// Some functions never return a value
+// The never type represents values which are never observed. 
+// In a return type, this means that the function throws an exception or terminates execution of the program.
+function handleError(errormsg: string): never {
+  throw new Error(errormsg);
+}

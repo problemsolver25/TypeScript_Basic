@@ -83,7 +83,7 @@ function infiniteLoop(): never {
 }
 
 // Exhaustiveness checking in switch statements
-// TypeScript type alias
+// TypeScript type alias, | is OR operator
 type Color = "red" | "green" | "blue";
 
 function checkColor(color: Color) {
