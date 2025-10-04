@@ -138,3 +138,5 @@ function getLastItem<PlaceholderType>(array: PlaceholderType[]): PlaceholderType
 console.log(getLastItem(gameScores))
 console.log(getLastItem(favoriteThings))
 console.log(getLastItem(voters))
+
+export {}
