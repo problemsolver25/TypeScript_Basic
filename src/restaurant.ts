@@ -5,7 +5,7 @@ type MenuItem = {
     price: number
 }
 
-// enum, union type for order status
+// order status
 type Status = "ordered" | "completed" | "canceled" | "done";
 
 // --- Type alias for an order ---
@@ -32,7 +32,7 @@ const menu: MenuItem[] = [
 // --- Add a new item to the menu ---
 // utilizing TypeScript's utility type Omit
 // Omit<MenuItem, "id"> means caller does not provide id; we auto-generate it
-function addNewItem(itemObj: Omit<MenuItem, "id">): MenuItem{
+function addNewItem(itemObj: Omit<MenuItem, "id">): MenuItem {
     const newItem: MenuItem = {
         id: nextItemId++, // assign new ID
         ...itemObj        // spread remaining properties
@@ -101,7 +101,11 @@ function addToArray<T>(array:T[], item:T): T[] {
 }
 
 addToArray<MenuItem>( menu, { id: nextItemId++, name: "Ice Cream", price: 3.99 } )
-addToArray<Order>( orderQueue, { id: nextOrderId++, item: menu[2], status: "done" } )
+addToArray<Order>( orderQueue, { 
+    id: nextOrderId++, 
+    item: menu[2] ?? { id: 0, name: "Unknown", price: 0 }, 
+    status: "done" 
+} )
 
 console.log(menu)
 console.log(orderQueue)

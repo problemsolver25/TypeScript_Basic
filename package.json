@@ -1,0 +1,20 @@
+{
+  "name": "typescripit_basic",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "(https://www.typescriptlang.org/download/)",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server",
+    "dev": "concurrently \"tsc -w\" \"http-server\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "problemsolver25",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "http-server": "^14.1.1",
+    "typescript": "^5.9.3"
+  }
+}

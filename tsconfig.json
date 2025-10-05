@@ -1,17 +1,48 @@
 {
+  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-    "target": "ES2020",                   // Modern JS features
-    "module": "ES2020",                   // Browser-compatible ES modules
-    "lib": ["ES2020", "DOM"],             // JS + browser APIs
-    "strict": true,                        // Enable all strict type-checking
-    "esModuleInterop": true,               // Allows default imports from CommonJS
-    "allowSyntheticDefaultImports": true,  // Import default even if module has none
-    "moduleResolution": "node",            // Better module resolution for imports
-    "forceConsistentCasingInFileNames": true,
+    // File Layout
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // Environment Settings
+    // See also https://aka.ms/tsconfig/module
+    "module": "nodenext",
+    "target": "esnext",
+    "moduleResolution": "nodenext",
+    "types": [],
+    // For nodejs:
+    // "lib": ["esnext"],
+    // "types": ["node"],
+    // and npm install -D @types/node
+
+    // Other Outputs
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Style Options
+    // "noImplicitReturns": true,
+    // "noImplicitOverride": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "noPropertyAccessFromIndexSignature": true,
+
+    // Recommended Options
+    "strict": true,
+    "jsx": "react-jsx",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
     "skipLibCheck": true,
-    "useDefineForClassFields": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true
+    "esModuleInterop": true,
   },
-  "include": ["./**/*.ts"]                // Compile all TS files in project
+  "include": ["src/**/*"],     // include only src folder
+  "exclude": ["node_modules", "src/tuts", "dist"] // ignore tuts folder
 }

@@ -14,7 +14,7 @@
 ## check TypeScript version
 `tsc -v`
 
-## Install use a local development server
+## Install use a local development server (https://www.npmjs.com/package/http-server)
 `npm install -g http-server`
 
 ## Compile your TypeScript code to Javascript:
@@ -130,7 +130,6 @@
     - Optional vs Required properties in interfaces (and default values in functions)
     - Readonly vs Mutable objects (difference with readonly)
     - Partial, Required, Pick, Omit utility types (to manipulate object types)
-- setup Typescript for real projects
 - Classes
 - Private Public
 - Getters and Setters
@@ -144,3 +143,35 @@
 - The in operator narrowing
 - Instanceof and Type Predicates
 - Discriminated Union and Exhaustiveness Checking with never
+
+### Setup Typescript for real projects
+- `tsc --init`
+- `npm init --y`
+- `mkdir src dist`. `src` is root directory. `outDir` dist (distribition, Output directory) is where compiled files are generated and saved
+- update the File Layout in `tsconfig.json`
+```
+    "rootDir": "./src",
+    "outDir": "./dist",
+```
+- `tsc -w` use watch mode while developing
+- A `.d.ts` file (short for declaration file) is a TypeScript type definition file. It doesn’t contain actual code — only type information about JavaScript code.
+- add `"type": "module",` in `package.json` i.e Treat all .js files in this package as ES Modules (ESM). default type is CommonJS.
+- check and update in `tsconfig.json` `module` & `target` 
+```
+"module": "nodenext",                  // Browser-compatible ES modules
+"target": "esnext"                     // Modern JS features
+"strict": true,                        // Enable all strict type-checking
+"esModuleInterop": true,               // Allows default imports from CommonJS
+"allowSyntheticDefaultImports": true,  // Import default even if module has none
+"moduleResolution": "nodenext",        // Better module resolution for imports
+```
+- update `package.json` to update start scripts then test `npm start` or `npm run dev` using `concurrently` instal and save it in package.json `npm install --save-dev typescript http-server concurrently`
+`
+```
+"scripts": {
+    ...
+    "start": "http-server",
+    "dev": "concurrently \"tsc -w\" \"http-server\"",
+    ...
+  },
+```

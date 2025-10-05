@@ -1,14 +1,23 @@
-<html>
-    <head>
-        <title>My First TypeScript Program</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/4.5.4/typescript.min.js"></script>
-        <!-- type="module" ensures each file runs in its own scope and avoids redeclaration errors. -->
-        <script type="module" src="./index.js"></script>
-        <script type="module" src="./restaurant.js"></script>
-        <script type="module" src="./menuItemDetails.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First TypeScript Program</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/4.5.4/typescript.min.js"></script>
+    <!-- type="module" ensures each file runs in its own scope and avoids redeclaration errors. -->
+    <script type="module" src="./dist/index.js"></script>
+    <script type="module" src="./dist/restaurant.js"></script>
+    <script type="module" src="./dist/menuItemDetails.js"></script>
 
-    </head>
-    <body>
-        <h1>Check the console for output</h1>
-    </body>
+    <style>
+        html, body {
+            background-color: #313131;
+            color:#fff
+        }
+    </style>
+</head>
+<body>
+    <h1>Check the console for output</h1>
+</body>
 </html>
