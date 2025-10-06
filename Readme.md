@@ -43,6 +43,7 @@
 - Strong typing and tooling make large-scale changes safe.
 - Huge adoption in open-source libraries.
 - TypeScript simply as “JavaScript with types”
+- Making complex code future proof. 
 
 ## more..
 - Type definitions act as documentation that the computer enforces.
@@ -109,7 +110,7 @@
     - **6️⃣ Function Types:** Define types for function parameters and return type. Syntax: `(parameters) => returnType;`. Use function types for variables, callbacks, and interface definitions.
     - **7️⃣ Function Overloading:** Define multiple signatures for a function. Use function overloading when one function needs to behave differently based on input types.
     - **8️⃣ Optional & Union Types in Functions:** mix optional, default, and union types for flexible yet type-safe. functions.
-- **Objects**
+- **Objects** (https://www.typescriptlang.org/docs/handbook/2/objects.html)
     - Type Aliases `type`
     - Optional properties (`?`)
     - Union Type (`|`)
@@ -130,19 +131,27 @@
     - Optional vs Required properties in interfaces (and default values in functions)
     - Readonly vs Mutable objects (difference with readonly)
     - Partial, Required, Pick, Omit utility types (to manipulate object types)
-- Classes
-- Private Public
-- Getters and Setters
-- Protected
-- Why Interface is important
-- Abstract class
-- Generics
-- Generics in Array and Arrow functions
-- Generic Classes
-- Type Narrowing
-- The in operator narrowing
-- Instanceof and Type Predicates
-- Discriminated Union and Exhaustiveness Checking with never
+- **OOP (Object-Oriented Programming) concepts** (https://www.typescriptlang.org/docs/handbook/2/classes.html)
+    - Classes
+    - Private Public
+    - Getters and Setters
+    - Protected
+    - Why Interface is important
+    - Abstract class
+- **Generics** (https://www.typescriptlang.org/docs/handbook/2/generics.html)
+    - Generics in Array and Arrow functions
+    - Generic Interfaces
+    - Generic Type Alias
+    - Generic Classes
+    - Generic Constraints
+    - Generic Default Type Parameters
+- **Type Narrowing** (https://www.typescriptlang.org/docs/handbook/2/narrowing.html)
+    - Basic Narrowing with `typeof`, type gaurd
+    - Narrowing with `instanceof`. 
+    - Narrowing with Property Checks. The `in` operator narrowing.
+    - Custom Type Guards, Type Predicates `as` & `is` operator narrowing.
+    - Discriminated Union `fuel: 'petrol' | 'diesel'`
+    - Exhaustiveness Checking with `: never` (switch case)
 
 ### Setup Typescript for real projects
 - `tsc --init`

@@ -34,3 +34,6 @@ const Pam: IAdmin = {
         return 10
     }
 }
+
+
+export {}

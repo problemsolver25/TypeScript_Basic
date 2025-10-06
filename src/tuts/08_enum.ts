@@ -19,3 +19,5 @@ enum grade {
     C = 40,
     F = "FAILED"
 }
+
+export {}
